@@ -1,762 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windcrest Carriage & Sleigh Rides | San Antonio Christmas Lights</title>
-    <meta name="description" content="Experience Windcrest's famous Christmas lights on a horse-drawn carriage or the first-ever one-horse open sleigh ride in South Texas!">
-    <meta name="keywords" content="Windcrest Christmas lights carriage rides, Windcrest sleigh rides, Windcrest Light Up horse carriage, Windcrest carriage tours, Windcrest Christmas Light Up rides, San Antonio Christmas carriage rides, Horse-drawn sleigh rides San Antonio, Windcrest holiday light tours, One horse open sleigh Windcrest, Christmas carriage rides near me, South Texas sleigh rides, Windcrest light display tours, Windcrest holiday events, San Antonio festive carriage rides">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            background: #0a0e1a;
-            color: #ffffff;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Subtle background gradient */
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at top, rgba(139, 0, 0, 0.15), transparent 50%),
-                        radial-gradient(ellipse at bottom, rgba(0, 100, 0, 0.1), transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 14, 26, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .brand {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-info {
-            display: flex;
-            gap: 20px;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .contact-info a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: #d4af37;
-        }
-
-        .season-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #8b0000, #006400);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px 60px;
-        }
-
-        /* Header Hero with Background Image */
-        .header-hero {
-            position: relative;
-            height: 600px;
-            margin-top: 80px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            margin-bottom: 80px;
-        }
-
-        .header-hero-bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://raw.githubusercontent.com/christina-whcc/windcrest/main/images/carriage-4.jpg');
-            background-size: cover;
-            background-position: center;
-            filter: brightness(0.5);
-        }
-
-        .header-hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(10, 14, 26, 0.8) 0%, transparent 60%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 60px;
-        }
-
-        .header-hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: -2px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            max-width: 900px;
-        }
-
-        .header-hero .subtitle {
-            font-size: 1.4rem;
-            font-weight: 300;
-            max-width: 800px;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-
-        /* Now Booking Section */
-        .booking-section {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .booking-section h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 20px;
-        }
-
-        .booking-section .subtitle {
-            font-size: 1.25rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 900px;
-            margin: 0 auto 30px;
-            line-height: 1.7;
-        }
-
-        .highlight-text {
-            color: #d4af37;
-            font-weight: 500;
-        }
-
-        .reservation-notice {
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 12px;
-            padding: 20px 30px;
-            max-width: 800px;
-            margin: 30px auto;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .reservation-notice strong {
-            color: #d4af37;
-        }
-
-        /* Booking Card */
-        .booking-card {
-            max-width: 600px;
-            margin: 0 auto 80px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 50px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .booking-card h3 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-        }
-
-        .booking-card .description {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .booking-widget {
-            margin: 30px 0;
-        }
-
-        .square-button {
-            background-color: #006aff !important;
-            color: white !important;
-            height: 50px !important;
-            text-transform: uppercase;
-            font-family: 'Square Market', 'helvetica neue', helvetica, arial, sans-serif !important;
-            letter-spacing: 1px !important;
-            line-height: 48px !important;
-            padding: 0 40px !important;
-            border-radius: 12px !important;
-            font-weight: 600 !important;
-            font-size: 15px !important;
-            cursor: pointer;
-            display: inline-block !important;
-            text-decoration: none !important;
-            transition: all 0.3s ease;
-            border: none !important;
-            width: 100%;
-            text-align: center;
-        }
-
-        .square-button:hover {
-            background-color: #0052cc !important;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 106, 255, 0.4);
-        }
-
-        /* Section Title */
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        /* Carriage Types */
-        .carriage-types {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-
-        .carriage-type {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .carriage-type:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-        }
-
-        .carriage-type-header {
-            padding: 40px 40px 30px;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .carriage-type-icon {
-            width: 100%;
-            max-width: 400px;
-            height: 250px;
-            margin: 0 auto 20px;
-            display: block;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .carriage-type-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .icon-caption {
-            position: absolute;
-            bottom: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.9);
-            z-index: 10;
-        }
-
-        .carriage-type h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-        }
-
-        .new-badge {
-            display: inline-block;
-            background: #d4af37;
-            color: #0a0e1a;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
-        .capacity {
-            font-size: 1rem;
-            color: #d4af37;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .carriage-type .type-description {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .carriage-gallery {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2px;
-        }
-
-        .carriage-gallery-item {
-            aspect-ratio: 16/9;
-            overflow: hidden;
-            background: rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, 0.3);
-            font-style: italic;
-            position: relative;
-        }
-
-        .image-caption {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.9);
-            z-index: 10;
-        }
-
-        .carriage-gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: all 0.4s ease;
-        }
-
-        .carriage-gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Sleigh Notice Box */
-        .sleigh-notice {
-            background: rgba(139, 0, 0, 0.15);
-            border: 2px solid rgba(212, 175, 55, 0.4);
-            border-radius: 16px;
-            padding: 40px;
-            margin-top: 80px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .sleigh-notice h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: #d4af37;
-            letter-spacing: -0.5px;
-        }
-
-        .sleigh-image {
-            width: 100%;
-            max-width: 500px;
-            height: 300px;
-            margin: 0 auto 30px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .sleigh-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .sleigh-notice p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 15px;
-        }
-
-        .sleigh-notice .call-now {
-            display: inline-block;
-            margin-top: 20px;
-            background: #d4af37;
-            color: #0a0e1a;
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .sleigh-notice .call-now:hover {
-            background: #f0c447;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Features Grid */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 40px 30px;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateY(-4px);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            letter-spacing: -0.3px;
-        }
-
-        .feature-card p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 50px 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
-
-        footer p {
-            margin: 5px 0;
-        }
-
-        footer a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #d4af37;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .features {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-content {
-                padding: 15px 20px;
-            }
-
-            .brand {
-                font-size: 1.1rem;
-            }
-
-            .contact-info {
-                font-size: 0.8rem;
-                gap: 10px;
-            }
-
-            .season-badge {
-                font-size: 0.75rem;
-                padding: 6px 14px;
-            }
-
-            .container {
-                padding: 0 20px 40px;
-            }
-
-            .header-hero {
-                height: 400px;
-                margin-top: 70px;
-            }
-
-            .header-hero-overlay {
-                padding: 30px;
-            }
-
-            .header-hero h1 {
-                font-size: 2rem;
-            }
-
-            .header-hero .subtitle {
-                font-size: 1rem;
-            }
-
-            .booking-section h2 {
-                font-size: 2rem;
-            }
-
-            .booking-section .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .booking-card {
-                padding: 35px 25px;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .carriage-type-header {
-                padding: 30px 25px 25px;
-            }
-
-            .carriage-type h3 {
-                font-size: 1.6rem;
-            }
-
-            .sleigh-notice {
-                padding: 30px 20px;
-            }
-
-            .sleigh-notice h3 {
-                font-size: 1.5rem;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '593233054200375');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=593233054200375&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windcrest Carriage & Sleigh Rides | San Antonio Christmas Lights</title>
+<meta name="description" content="Experience Windcrest's famous Christmas lights on a horse-drawn carriage or the first-ever one-horse open sleigh ride in South Texas!">
+<meta name="keywords" content="Windcrest Christmas lights carriage rides, Windcrest sleigh rides, Windcrest Light Up horse carriage, Windcrest carriage tours, Windcrest Christmas Light Up rides, San Antonio Christmas carriage rides, Horse-drawn sleigh rides San Antonio, Windcrest holiday light tours, One horse open sleigh Windcrest, Christmas carriage rides near me, South Texas sleigh rides, Windcrest light display tours, Windcrest holiday events, San Antonio festive carriage rides">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://windcrestcarriagetours.com/">
+<meta property="og:title" content="Windcrest Carriage & Sleigh Rides | White Horse and Carriage Company">
+<meta property="og:description" content="Horse-drawn carriage and the first one-horse open sleigh in South Texas, through the Windcrest Christmas Light Up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://windcrestcarriagetours.com/">
+<meta property="og:image" content="https://raw.githubusercontent.com/christina-whcc/windcrest/main/images/carriage-4.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green-deep:#0d130e; --green-panel:#141c15;
+  --brass:#b8935a; --brass-bright:#d8b378;
+  --burgundy:#5c1420; --burgundy-bright:#7a1c2b;
+  --ivory:#f2ecdc; --ivory-dim:rgba(242,236,220,.68);
+  --hairline:rgba(184,147,90,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'EB Garamond',Georgia,serif;background:var(--green-deep);color:var(--ivory);min-height:100vh;overflow-x:hidden}
+::selection{background:var(--brass);color:var(--green-deep)}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:.02em}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--brass-bright);outline-offset:3px}
+.eyebrow{font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);font-weight:500}
+.bg-texture{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 900px 500px at 50% -10%,rgba(184,147,90,.09),transparent 60%),radial-gradient(ellipse 700px 500px at 100% 100%,rgba(92,20,32,.12),transparent 60%)}
+
+/* Nav */
+nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(13,19,14,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--hairline)}
+.nav-content{max-width:1300px;margin:0 auto;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;letter-spacing:.03em;line-height:1.1}
+.brand small{display:block;font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.28em;color:var(--brass);text-transform:uppercase;margin-top:3px;font-weight:500}
+.nav-right{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.contact-info{display:flex;gap:22px;font-family:'Jost',sans-serif;font-size:.82rem;color:var(--ivory-dim)}
+.contact-info a{text-decoration:none;transition:color .3s}
+.contact-info a:hover{color:var(--brass-bright)}
+
+/* Buttons */
+.btn{display:inline-block;font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;text-decoration:none;padding:15px 34px;border-radius:2px;transition:all .35s ease;border:1px solid transparent;cursor:pointer}
+.btn-book{background:var(--burgundy);color:var(--ivory);border:1px solid var(--brass)}
+.btn-book:hover{background:var(--burgundy-bright);box-shadow:0 6px 24px rgba(92,20,32,.5);transform:translateY(-2px)}
+.btn-nav{padding:11px 24px;font-size:.7rem}
+.btn-outline{background:transparent;color:var(--brass-bright);border:1px solid var(--brass)}
+.btn-outline:hover{background:rgba(184,147,90,.1);transform:translateY(-2px)}
+
+/* Hero (uses our photo) */
+.header-hero{position:relative;height:680px;overflow:hidden;border-bottom:1px solid var(--hairline)}
+.header-hero-bg{position:absolute;inset:0;background:url('https://raw.githubusercontent.com/christina-whcc/windcrest/main/images/carriage-4.jpg') center/cover no-repeat;filter:brightness(.5)}
+.header-hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(13,19,14,.85) 0%,transparent 60%)}
+.header-hero-overlay{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 40px 40px}
+.header-hero .eyebrow{margin-bottom:18px}
+.header-hero h1{font-size:3.6rem;line-height:1.15;max-width:860px;margin-bottom:20px}
+.header-hero h1 em{font-style:italic;color:var(--brass-bright)}
+.header-hero .subtitle{font-size:1.25rem;font-style:italic;max-width:680px;line-height:1.7;color:var(--ivory-dim);margin-bottom:36px}
+.hero-ctas{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
+
+.container{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 40px 60px}
+
+/* Intro */
+.booking-section{text-align:center;padding:100px 0 20px}
+.booking-section h2{font-size:2.7rem;margin:14px 0 22px}
+.booking-section .lede{font-size:1.2rem;color:var(--ivory-dim);max-width:760px;margin:0 auto 30px;line-height:1.85}
+.booking-section .lede a{color:var(--brass-bright);text-decoration:none;border-bottom:1px solid var(--brass)}
+.reservation-notice{background:rgba(184,147,90,.06);border:1px solid var(--hairline);border-radius:2px;padding:24px 34px;max-width:720px;margin:34px auto;font-size:1rem;line-height:1.7;color:var(--ivory-dim)}
+.reservation-notice strong{color:var(--brass-bright);font-weight:500}
+.reservation-notice a{color:var(--brass-bright);text-decoration:none}
+
+/* Booking card */
+.booking-card{max-width:600px;margin:0 auto 100px;background:var(--green-panel);border:1px solid var(--hairline);padding:56px 50px;text-align:center;position:relative}
+.booking-card::before,.booking-card::after{content:"";position:absolute;width:22px;height:22px;border:1px solid var(--brass)}
+.booking-card::before{top:14px;left:14px;border-right:none;border-bottom:none}
+.booking-card::after{bottom:14px;right:14px;border-left:none;border-top:none}
+.booking-card h3{font-size:1.8rem;margin-bottom:12px}
+.booking-card .description{font-size:1.02rem;color:var(--ivory-dim);margin-bottom:30px;line-height:1.7}
+.booking-widget{margin:0}
+/* Square's own button class, restyled to match */
+.square-button{display:block;width:100%;background:var(--burgundy)!important;color:var(--ivory)!important;border:1px solid var(--brass)!important;border-radius:2px!important;font-family:'Jost',sans-serif!important;font-size:.78rem!important;font-weight:600!important;letter-spacing:.18em!important;text-transform:uppercase;text-decoration:none!important;line-height:1!important;height:auto!important;padding:17px 34px!important;text-align:center;transition:all .35s ease}
+.square-button:hover{background:var(--burgundy-bright)!important;box-shadow:0 6px 24px rgba(92,20,32,.5);transform:translateY(-2px)}
+
+/* Section titles & dividers */
+.section-sub{text-align:center;font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);margin-bottom:10px}
+.section-title{font-size:2.5rem;text-align:center;margin-bottom:8px}
+.section-intro{text-align:center;color:var(--ivory-dim);max-width:640px;margin:14px auto 50px;font-style:italic}
+.divider{display:flex;align-items:center;justify-content:center;gap:18px;margin:22px auto}
+.divider .line{height:1px;width:70px;background:linear-gradient(90deg,transparent,var(--hairline),transparent)}
+
+/* Vehicles */
+.carriage-types{display:grid;grid-template-columns:1fr;gap:40px;margin-bottom:40px}
+.carriage-type{background:var(--green-panel);border:1px solid var(--hairline);display:grid;grid-template-columns:1fr 1fr}
+.carriage-type:nth-child(even) .carriage-type-visual{order:2;border-right:none;border-left:1px solid var(--hairline)}
+.carriage-type-visual{position:relative;aspect-ratio:4/3;border-right:1px solid var(--hairline);background:#10160f;overflow:hidden}
+.slideshow,.slide{position:absolute;inset:0}
+.slide{opacity:0;transition:opacity .9s ease;pointer-events:none}
+.slide.active{opacity:1;pointer-events:auto}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.ss-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:42px;height:42px;background:rgba(13,19,14,.75);color:var(--ivory);border:1px solid var(--hairline);font-size:1.6rem;line-height:1;cursor:pointer;transition:background .3s}
+.ss-btn:hover{background:var(--burgundy)}
+.ss-btn:focus-visible{outline:2px solid var(--brass-bright)}
+.ss-btn.prev{left:14px}.ss-btn.next{right:14px}
+.ss-dots{position:absolute;bottom:16px;right:16px;z-index:3;display:flex;gap:8px}
+.dot{width:8px;height:8px;border:1px solid var(--brass-bright);border-radius:50%;background:transparent}
+.dot.active{background:var(--brass-bright)}
+.icon-caption{z-index:2}
+.icon-caption{position:absolute;bottom:14px;left:14px;background:rgba(13,19,14,.85);border:1px solid var(--hairline);padding:5px 14px;font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.14em;color:var(--ivory-dim);white-space:nowrap}
+.carriage-type-copy{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
+.carriage-type h3{font-size:2rem;margin-bottom:8px}
+.new-badge{display:inline-block;background:var(--brass);color:var(--green-deep);padding:3px 12px;font-family:'Jost',sans-serif;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-left:10px;vertical-align:middle}
+.capacity{font-family:'Jost',sans-serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-bright);font-weight:500;margin-bottom:18px}
+.type-description{color:var(--ivory-dim);font-size:1.06rem;line-height:1.8;margin-bottom:26px}
+
+/* Video */
+.video-section{max-width:900px;margin:0 auto 100px}
+.video-container{position:relative;padding-bottom:56.25%;height:0;border:1px solid var(--hairline);background:#10160f}
+.video-container iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+
+/* Features */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline);margin-bottom:100px}
+.feature-card{background:var(--green-deep);padding:44px 36px;transition:background .3s}
+.feature-card:hover{background:var(--green-panel)}
+.feature-card .num{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--brass);margin-bottom:14px;letter-spacing:.1em}
+.feature-card h3{font-size:1.3rem;margin-bottom:12px}
+.feature-card p{color:var(--ivory-dim);line-height:1.75;font-size:.98rem}
+
+/* Closing */
+.closing{border:1px solid var(--hairline);background:linear-gradient(160deg,rgba(184,147,90,.07),rgba(92,20,32,.08));padding:56px;text-align:center;margin-bottom:60px}
+.closing h3{font-size:2.1rem;margin-bottom:12px}
+.closing p{max-width:600px;margin:0 auto 16px;font-size:1.08rem;line-height:1.8;color:var(--ivory-dim)}
+
+footer{text-align:center;padding:50px 40px;border-top:1px solid var(--hairline);color:var(--ivory-dim);font-size:.92rem}
+footer .brand-line{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--ivory);margin-bottom:14px;letter-spacing:.03em}
+footer p{margin:6px 0}
+footer a{text-decoration:none;transition:color .3s}
+footer a:hover{color:var(--brass-bright)}
+footer .legal{margin-top:22px;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.05em;color:rgba(242,236,220,.4)}
+
+.mobile-book-bar{display:none}
+
+@media (max-width:900px){
+  .carriage-type{grid-template-columns:1fr}
+  .carriage-type:nth-child(even) .carriage-type-visual{order:0;border-left:none}
+  .carriage-type-visual{border-right:none;border-bottom:1px solid var(--hairline);aspect-ratio:4/3}
+  .features{grid-template-columns:1fr 1fr}
+}
+@media (max-width:768px){
+  .nav-content{padding:14px 20px}
+  .contact-info{display:none}
+  .brand{font-size:1.2rem}
+  .container{padding:0 22px 40px}
+  .header-hero{height:560px}
+  .header-hero h1{font-size:2.3rem}
+  .header-hero .subtitle{font-size:1.05rem}
+  .booking-section{padding:70px 0 10px}
+  .booking-section h2{font-size:2rem}
+  .booking-card{padding:40px 26px}
+  .section-title{font-size:1.9rem}
+  .carriage-type-copy{padding:36px 28px}
+  .features{grid-template-columns:1fr}
+  .closing{padding:36px 24px}
+  .mobile-book-bar{display:flex;position:fixed;bottom:0;left:0;width:100%;z-index:999;background:rgba(13,19,14,.96);border-top:1px solid var(--brass);padding:12px 18px;backdrop-filter:blur(10px)}
+  .mobile-book-bar .btn{width:100%;text-align:center}
+  body{padding-bottom:70px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
 </head>
 <body>
-    <div class="bg-gradient"></div>
+<div class="bg-texture"></div>
 
-    <nav>
-        <div class="nav-content">
-            <div class="brand">White Horse and Carriage Company</div>
-            <div class="nav-right">
-                <div class="contact-info">
-                    <a href="tel:210-646-4102">📞 210-646-4102</a>
-                    <a href="mailto:info@whitehorseandcarriage.com">✉️ info@whitehorseandcarriage.com</a>
-                </div>
-                <div class="season-badge">HOLIDAY 2025</div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Header Hero with Background Image -->
-    <div class="header-hero">
-        <div class="header-hero-bg"></div>
-        <div class="header-hero-overlay">
-            <h1>Windcrest Carriage Tours<br>By White Horse and Carriage Company</h1>
-            <p class="subtitle">Make this holiday season unforgettable with a horse-drawn carriage tour through the famous Windcrest Christmas lights—a magical experience for families to create lasting memories together!</p>
-        </div>
+<nav>
+  <div class="nav-content">
+    <div class="brand">White Horse and Carriage<small>Company</small></div>
+    <div class="nav-right">
+      <div class="contact-info">
+        <a href="tel:210-646-4102">210-646-4102</a>
+        <a href="mailto:info@whitehorseandcarriage.com">info@whitehorseandcarriage.com</a>
+      </div>
+      <a href="#reserve" class="btn btn-book btn-nav">Book Now</a>
     </div>
+  </div>
+</nav>
 
-    <div class="container">
-        <!-- Now Booking -->
-        <div class="booking-section">
-            <h2>Now Booking for Holiday 2025</h2>
-            <p class="subtitle">
-                Celebrate the season in true holiday style with a magical horse-drawn carriage ride through the famous <a href="https://www.windcrest-tx.gov/541/Windcrest-Events" target="_blank" style="color: #d4af37; text-decoration: none; border-bottom: 1px solid #d4af37; font-weight: 600;">Windcrest Christmas Light Up</a>. Our sightseeing rides take you through streets aglow with twinkling displays, festive décor, and neighborhood cheer. Perfect for families, couples, and anyone who loves the magic of Christmas lights!
-            </p>
-            <div class="reservation-notice">
-                <strong>Reservations are strongly recommended</strong> to avoid wait times and ensure availability. While walk-up rides are welcome, they may not be available on all nights if we are fully booked.<br><br>Call us at <a href="tel:210-646-4102" style="color: #d4af37; text-decoration: none;">210-646-4102</a> with any questions.
-            </div>
-        </div>
-
-        <!-- Booking Widget -->
-        <div class="booking-card">
-            <h3>Reserve Your Carriage Tour</h3>
-            <p class="description">
-                Choose from 25 or 50-minute carriage tours and select your preferred date and time. Tours fill up quickly during peak season!
-            </p>
-            <div class="booking-widget">
-                <!-- Start Square Appointments Embed Code -->
-                <script src='https://app.squareup.com/appointments/buyer/widget/binvx216v1phsq/3SM80WHPMDH4D.js'></script>
-                <!-- End Square Appointments Embed Code -->
-            </div>
-        </div>
-
-        <!-- Main Carriage Type -->
-        <h2 class="section-title">Our Traditional Holiday Carriage</h2>
-        <div class="carriage-types">
-            <div class="carriage-type">
-                <div class="carriage-type-header">
-                    <div class="carriage-type-icon">
-                        <img src="https://raw.githubusercontent.com/christina-whcc/windcrest/main/images/carriage-5.jpg" alt="Traditional carriage limo">
-                    </div>
-                    <h3>Traditional "Limo" Carriage</h3>
-                    <p class="capacity">Holds up to 6 passengers</p>
-                    <p class="type-description">
-                        Experience timeless elegance with a ride in our spacious traditional style "limo" carriage. Decorated with lights and holiday garlands, this carriage is perfect for families and larger groups seeking a traditional holiday experience with comfortable seating, cozy blankets, and plenty of room to enjoy the spectacular light displays together.
-                    </p>
-                </div>
-                <div class="carriage-gallery">
-                    <div class="carriage-gallery-item">
-                        <img src="https://raw.githubusercontent.com/christina-whcc/windcrest/main/images/carriage-7.jpg" alt="Traditional carriage limo" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sleigh Notice -->
-        <div class="sleigh-notice">
-            <h3>🛷 Limited Sleigh Rides Available by Special Request</h3>
-            <div class="sleigh-image">
-                <img src="https://raw.githubusercontent.com/christina-whcc/windcrest/main/images/Sleigh.jpg" alt="One-horse open sleigh">
-            </div>
-            <p>
-                Due to overwhelming demand, our exclusive one-horse open sleigh—the <strong>first and only</strong> horse-drawn sleigh in South Texas—is available on a very limited basis. These magical rides are booking up fast and are only offered on select nights throughout the season.
-            </p>
-            <p>
-                To inquire about sleigh ride availability for your preferred date, please call us directly. Sleigh rides accommodate up to 4 passengers and offer a once-in-a-lifetime opportunity to experience this iconic holiday tradition right here in Texas.
-            </p>
-            <a href="tel:210-646-4102" class="call-now">📞 Call 210-646-4102 to Request Sleigh Availability</a>
-        </div>
-
-        <!-- Features -->
-        <h2 class="section-title">What to Expect</h2>
-        <div class="features">
-            <div class="feature-card">
-                <span class="feature-icon">✨</span>
-                <h3>Windcrest Light Up</h3>
-                <p>Tour through the legendary Windcrest Light Up, known throughout Texas for its spectacular synchronized Christmas light shows and festive decorations that draw visitors from across the region.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🐴</span>
-                <h3>Gentle Horses</h3>
-                <p>Our beautiful, well-trained horses are gentle and experienced, ensuring a smooth and comfortable ride for guests of all ages throughout your journey.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">👨‍👩‍👧‍👦</span>
-                <h3>Perfect for Everyone</h3>
-                <p>Whether it's a family outing, romantic date night, or special celebration, our tours create unforgettable holiday memories for all ages.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🎄</span>
-                <h3>Festive Atmosphere</h3>
-                <p>Our carriages are beautifully decorated with twinkling lights and holiday garlands, creating the perfect festive ambiance for your journey through the lights.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">📍</span>
-                <h3>Expert Guides</h3>
-                <p>Our knowledgeable guides share stories about Windcrest's holiday traditions and ensure you see the most spectacular displays along the route.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">📸</span>
-                <h3>Photo Opportunities</h3>
-                <p>Capture magical moments against the backdrop of millions of twinkling lights. Every turn offers stunning photo opportunities you'll treasure forever.</p>
-            </div>
-        </div>
-
-        <footer>
-            <p><strong>Windcrest Carriage Tours by White Horse and Carriage Company</strong></p>
-            <p>📞 <a href="tel:210-646-4102">210-646-4102</a> | ✉️ <a href="mailto:info@whitehorseandcarriage.com">info@whitehorseandcarriage.com</a></p>
-            <p style="margin-top: 15px;">Holiday Season 2025 • San Antonio, Texas</p>
-            <p>&copy; 2025 White Horse and Carriage Company. All rights reserved.</p>
-        </footer>
+<!-- Hero -->
+<header class="header-hero">
+  <div class="header-hero-bg"></div>
+  <div class="header-hero-overlay">
+    <div class="eyebrow">Holiday 2026 &nbsp;·&nbsp; Windcrest, Texas</div>
+    <h1>Windcrest<br><em>Carriage &amp; Sleigh Rides</em></h1>
+    <p class="subtitle">Make this holiday season unforgettable with a horse-drawn tour through the famous Windcrest Christmas lights, a magical experience for families to enjoy together.</p>
+    <div class="hero-ctas">
+      <a href="#reserve" class="btn btn-book">Reserve Your Tour</a>
+      <a href="#tours" class="btn btn-outline">View Carriages</a>
     </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Intro -->
+  <section class="booking-section">
+    <div class="eyebrow">Now Booking</div>
+    <h2>An Evening Among the Lights</h2>
+    <p class="lede">
+      Celebrate the season in true holiday style with a horse-drawn carriage or sleigh ride through the famous <a href="https://www.windcrest-tx.gov/541/Windcrest-Events" target="_blank" rel="noopener">Windcrest Christmas Light Up</a>. Our sightseeing rides take you through streets aglow with twinkling displays, festive décor, and neighborhood cheer, ideal for families, couples, and anyone who loves the magic of Christmas lights.
+    </p>
+    <div class="reservation-notice">
+      <strong>Reservations are strongly recommended</strong> to avoid wait times and ensure availability. While walk-up rides are welcome, they may not be available on all nights if we are fully booked.<br><br>
+      Questions? Call us at <a href="tel:210-646-4102">210-646-4102</a>.
+    </div>
+  </section>
+
+  <!-- Booking -->
+  <section class="booking-card" id="reserve">
+    <h3>Reserve Your Tour</h3>
+    <p class="description">Choose from 25 or 50-minute tours and select your preferred date and time. Tours fill up quickly during peak season.</p>
+    <div class="booking-widget">
+      <script src='https://app.squareup.com/appointments/buyer/widget/binvx216v1phsq/3SM80WHPMDH4D.js'></script>
+      <a class="square-button" href="https://app.squareup.com/appointments/buyer/widget/binvx216v1phsq/3SM80WHPMDH4D" target="_blank">Book Your Tour Now</a>
+    </div>
+  </section>
+
+  <div class="divider"><span class="line"></span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0 L8 16 M0 8 L16 8" stroke="#b8935a" stroke-width="1"/></svg><span class="line"></span></div>
+
+  <!-- Vehicles -->
+  <section id="tours">
+    <div class="section-sub">Our Carriages</div>
+    <h2 class="section-title">Choose Your Experience</h2>
+    <p class="section-intro">A spacious carriage for the whole family, or a one-of-a-kind sleigh for an intimate evening.</p>
+
+    <div class="carriage-types">
+      <article class="carriage-type">
+        <div class="carriage-type-visual"><div class="slideshow" aria-roledescription="carousel">
+          <div class="slide active"><img src="https://raw.githubusercontent.com/christina-whcc/windcrest/main/images/carriage-5.jpg" alt="Traditional carriage limo"></div>
+          <div class="slide"><img src="https://raw.githubusercontent.com/christina-whcc/windcrest/main/images/carriage-7.jpg" alt="Traditional carriage limo decorated for the holidays" loading="lazy"></div>
+          <button class="ss-btn prev" aria-label="Previous photo">&#8249;</button><button class="ss-btn next" aria-label="Next photo">&#8250;</button>
+          <div class="ss-dots"><span class="dot active"></span><span class="dot"></span></div>
+        </div></div>
+        <div class="carriage-type-copy">
+          <h3>Traditional Carriage Limo</h3>
+          <p class="capacity">Holds up to 6 passengers</p>
+          <p class="type-description">Timeless elegance in our spacious, traditional-style "limo" carriage. Decorated with lights and holiday garlands, it is made for families and larger groups, with comfortable seating, cozy blankets, and plenty of room to enjoy the light displays together.</p>
+          <a href="#reserve" class="btn btn-outline" style="align-self:flex-start">Reserve The Carriage</a>
+        </div>
+      </article>
+
+      <article class="carriage-type">
+        <div class="carriage-type-visual"><div class="slideshow" aria-roledescription="carousel">
+          <div class="slide active"><img src="https://raw.githubusercontent.com/christina-whcc/windcrest/5e47b858af86a84eaff62093e80131679b251d81/images/windcrest%20texas%20santa%20sleigh%20ride.jpg" alt="One-horse open sleigh"><div class="icon-caption">*Santa not included</div></div>
+          <div class="slide"><img src="https://raw.githubusercontent.com/christina-whcc/windcrest/5e47b858af86a84eaff62093e80131679b251d81/images/windcrest%20texas%20christmast%20sleigh%20ride.jpg" alt="One-horse open sleigh in the Windcrest lights" loading="lazy"></div>
+          <button class="ss-btn prev" aria-label="Previous photo">&#8249;</button><button class="ss-btn next" aria-label="Next photo">&#8250;</button>
+          <div class="ss-dots"><span class="dot active"></span><span class="dot"></span></div>
+        </div></div>
+        <div class="carriage-type-copy">
+          <h3>One-Horse Open Sleigh<span class="new-badge">First Time Ever</span></h3>
+          <p class="capacity">Holds up to 4 passengers</p>
+          <p class="type-description">Experience the first-ever horse-drawn sleigh ride in South Texas. Our one-of-a-kind wheeled sleigh is the only horse-drawn sleigh in South Texas, offering a truly unique way to see the legendary Windcrest Light Up. Perfect for those seeking the ultimate Christmas experience.</p>
+          <a href="#reserve" class="btn btn-outline" style="align-self:flex-start">Reserve The Sleigh</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="divider" style="margin-top:20px"><span class="line"></span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0 L8 16 M0 8 L16 8" stroke="#b8935a" stroke-width="1"/></svg><span class="line"></span></div>
+
+  <!-- Video -->
+  <section class="video-section">
+    <div class="section-sub">See It in Motion</div>
+    <h2 class="section-title">Watch the Ride</h2>
+    <p class="section-intro">Our horse and carriage travel through the Windcrest Christmas lights, festive holiday music playing and passengers waving along the way.</p>
+    <div class="video-container">
+      <iframe src="https://www.youtube-nocookie.com/embed/VW4DSXMHnbk" title="White Horse and Carriage Company Windcrest tour video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section>
+    <div class="section-sub">The Experience</div>
+    <h2 class="section-title">What to Expect</h2>
+    <p class="section-intro">From the lights to the horses, every part of the evening is planned with your comfort in mind.</p>
+    <div class="features">
+      <div class="feature-card"><div class="num">I.</div><h3>Windcrest Light Up</h3><p>Tour through the legendary Windcrest Light Up, known throughout Texas for its spectacular synchronized Christmas light shows and festive decorations that draw visitors from across the region.</p></div>
+      <div class="feature-card"><div class="num">II.</div><h3>First-Ever Sleigh Rides</h3><p>Be among the first to experience our brand-new one-horse open sleigh, the only horse-drawn sleigh in South Texas, a once-in-a-lifetime addition to your holiday memories.</p></div>
+      <div class="feature-card"><div class="num">III.</div><h3>Gentle Horses</h3><p>Our beautiful, well-trained horses are gentle and experienced, ensuring a smooth and comfortable ride for guests of all ages.</p></div>
+      <div class="feature-card"><div class="num">IV.</div><h3>Perfect for Everyone</h3><p>Whether it's a family outing, a romantic date night, or a special celebration, our tours create unforgettable holiday memories for all ages.</p></div>
+      <div class="feature-card"><div class="num">V.</div><h3>Expert Guides</h3><p>Our knowledgeable guides share stories about Windcrest's holiday traditions and make sure you see the most spectacular displays along the route.</p></div>
+      <div class="feature-card"><div class="num">VI.</div><h3>Photo Opportunities</h3><p>Capture magical moments against the backdrop of millions of twinkling lights. Every turn offers a photo you'll treasure.</p></div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <h3>A Christmas Memory That Lasts Beyond the Ride</h3>
+    <p>Christmas comes once a year. Reserve your evening and make this one a tradition.</p>
+    <a href="#reserve" class="btn btn-book" style="margin-top:14px">Book Your Tour</a>
+  </section>
+
+  <footer>
+    <div class="brand-line">White Horse and Carriage Company</div>
+    <p style="font-style:italic;color:var(--brass-bright);margin-bottom:14px">Windcrest Carriage Tours</p>
+    <p><a href="tel:210-646-4102">210-646-4102</a> &nbsp;|&nbsp; <a href="mailto:info@whitehorseandcarriage.com">info@whitehorseandcarriage.com</a></p>
+    <p>Holiday Season 2026 &nbsp;·&nbsp; San Antonio, Texas</p>
+    <p class="legal">&copy; 2026 White Horse and Carriage Company. All rights reserved.</p>
+  </footer>
+</div>
+
+<div class="mobile-book-bar">
+  <a href="#reserve" class="btn btn-book">Book Now</a>
+</div>
+
+<script>
+document.querySelectorAll('.slideshow').forEach(function(ss){
+  var slides=ss.querySelectorAll('.slide'),dots=ss.querySelectorAll('.dot'),i=0,t;
+  function go(n){slides[i].classList.remove('active');dots[i].classList.remove('active');i=(n+slides.length)%slides.length;slides[i].classList.add('active');dots[i].classList.add('active')}
+  function start(){if(!matchMedia('(prefers-reduced-motion:reduce)').matches)t=setInterval(function(){go(i+1)},5000)}
+  function stop(){clearInterval(t)}
+  ss.querySelector('.prev').onclick=function(){go(i-1)};
+  ss.querySelector('.next').onclick=function(){go(i+1)};
+  ss.addEventListener('mouseenter',stop);ss.addEventListener('mouseleave',function(){stop();start()});
+  start();
+});
+</script>
 </body>
 </html>
